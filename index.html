@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SIGNAL 灵感实验室：一个关于观察、创造与探索的交互式示例网站。">
+  <meta name="color-scheme" content="light dark">
+  <title>SIGNAL — 灵感实验室</title>
+  <style>
+    :root{--paper:#f7f7f2;--ink:#182922;--muted:#5d6b63;--line:#d9dfd7;--card:#fff;--lime:#d6f576;--soft:#e9eee5;--shadow:0 15px 40px #18292208;font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--paper);font-synthesis:none;scroll-behavior:smooth;scroll-padding-top:90px}
+    :root[data-theme="dark"]{--paper:#111d18;--ink:#eef4e9;--muted:#adbbb1;--line:#34473c;--card:#1c2b23;--soft:#26372d;--shadow:0 15px 40px #0002}
+    *{box-sizing:border-box}body{margin:0}button,input,a{-webkit-tap-highlight-color:transparent}button,a,input{outline-offset:6px}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}button:disabled{cursor:default}button,dialog{border:0}button{background:none}svg{display:block}::selection{background:#d6f576;color:#182922}.wrap{width:min(1160px,calc(100% - 88px));margin:auto}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;letter-spacing:1.5px}.tag{display:inline-flex;align-items:center;gap:9px;text-transform:uppercase}.dot{width:6px;height:6px;background:#619147;border-radius:50%;box-shadow:0 0 0 4px #61914713}.skip{position:fixed;top:-100px;left:20px;z-index:30;padding:12px;background:var(--lime);color:#182922}.skip:focus{top:10px}header{height:88px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:11px;font-size:22px;font-weight:800;letter-spacing:-1px}.brand-symbol{display:grid;grid-template-columns:repeat(3,4px);gap:3px;align-items:center;height:22px}.brand-symbol i{width:4px;background:currentColor;border-radius:2px;height:12px}.brand-symbol i:nth-child(2){height:22px}.nav{display:flex;align-items:center;gap:30px;font-size:13px}.nav a:hover{color:#668638}.theme{width:35px;height:35px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;font-size:18px}.nav .github{display:flex;align-items:center;gap:7px}.hero{padding:70px 0 64px;display:grid;grid-template-columns:1.05fr 1fr;gap:55px;align-items:center}.eyebrow{color:var(--muted)}.hero h1{font-size:clamp(44px,4.9vw,67px);line-height:1.2;letter-spacing:-3px;margin:27px 0 22px;font-weight:750}.hero h1 em{font-style:normal;display:inline-block;position:relative;z-index:0}.hero h1 em:after{content:"";height:13px;background:var(--lime);position:absolute;bottom:7px;left:-2px;right:-5px;z-index:-1;transform:rotate(-2deg)}:root[data-theme="dark"] .hero h1 em:after{background:#5c752a}.hero p{font-size:14px;color:var(--muted);line-height:2;max-width:385px}.actions{display:flex;align-items:center;gap:24px;margin-top:30px;font-size:13px}.primary{background:var(--ink);color:var(--paper);padding:15px 22px;display:inline-flex;gap:26px;align-items:center;border-radius:4px;transition:transform .2s}.primary:hover{transform:translateY(-3px)}.secondary{border-bottom:1px solid var(--line);padding:10px 0;display:inline-flex;gap:13px}.hero-foot{display:flex;align-items:center;gap:8px;margin-top:38px;color:var(--muted);font-size:11px}.hero-foot span{width:18px;height:18px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%}.instrument{position:relative;background:#20372c;color:#e5eede;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transform:rotate(1deg)}.instrument-top{display:flex;justify-content:space-between;align-items:center;padding:20px 23px;border-bottom:1px solid #ffffff19;color:#b1c3b6}.lights{display:flex;gap:5px}.lights i{width:5px;height:5px;border-radius:50%;background:#8fa795}.lights i:first-child{background:#d6f576}.scope{position:relative;height:267px;background-image:linear-gradient(#ffffff07 1px,transparent 1px),linear-gradient(90deg,#ffffff07 1px,transparent 1px);background-size:32px 32px}.scope-label{position:absolute;top:22px;left:24px;color:#c3d8b4;font-size:10px}.scope svg{width:100%;height:100%}.scope-corner{position:absolute;bottom:19px;left:23px;color:#9eafa4}.scope-tiny{position:absolute;bottom:19px;right:23px;color:#c7dcbb}.instrument-bottom{padding:18px 23px;display:flex;justify-content:space-between;border-top:1px solid #ffffff19;align-items:center;background:#1d3027}.wave-label{font-size:12px}.wave-label small{display:block;color:#9eb4a4;font-size:10px;margin-top:5px}.signal-icon{width:33px;height:33px;border:1px solid #ffffff22;border-radius:50%;display:grid;place-items:center;color:#d6f576}.note{position:absolute;bottom:67px;right:15px;background:var(--lime);color:#20372c;font-size:10px;border-radius:3px;padding:8px 12px;transform:rotate(-6deg);letter-spacing:1px}.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;padding:20px 0;font-size:11px;color:var(--muted);letter-spacing:1.3px}.ticker span{display:flex;gap:9px;align-items:center}.ticker b{color:#7a9863;font-size:14px;font-weight:400}.section{padding:66px 0 0}.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;gap:20px}.section-head h2{font-size:27px;letter-spacing:-.9px;margin:12px 0 0}.section-number{color:#6b8256}.section-desc{max-width:330px;line-height:1.8;font-size:12px;color:var(--muted);margin:0}.filters{display:flex;gap:6px;margin-top:20px}.filter{font-size:12px;border:1px solid var(--line);border-radius:100px;padding:7px 17px}.filter[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.project{border:1px solid var(--line);border-radius:7px;overflow:hidden;background:var(--card);transition:transform .2s,box-shadow .2s}.project:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.project[hidden]{display:none}.project-art{height:185px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}.art-grid{background:#e8eadf;background-image:radial-gradient(#8c9a7b50 .8px,transparent .8px);background-size:14px 14px}.project-art svg{width:100%;height:100%}.art-orbits{background:#dfE7d7}.art-code{background:#e9e6dd}.art-mark{position:absolute;left:18px;top:16px;font-size:9px;color:#64765b}.project-copy{padding:21px 21px 19px}.project-meta{display:flex;justify-content:space-between;color:var(--muted);font-size:9px;letter-spacing:1px}.project h3{font-size:18px;margin:12px 0 9px}.project p{font-size:12px;line-height:1.8;color:var(--muted);margin:0;min-height:43px}.project-open{padding:15px 0 0;margin-top:18px;border-top:1px solid var(--line);width:100%;display:flex;justify-content:space-between;font-size:11px;text-align:left}.project-open b{font-size:15px;font-weight:400}.lab{margin-top:66px;border:1px solid var(--line);border-radius:8px;padding:32px;display:grid;grid-template-columns:1fr 1.2fr;gap:45px;align-items:center;background:var(--card)}.lab h2{font-size:26px;margin:13px 0}.lab p{font-size:12px;line-height:1.9;color:var(--muted);max-width:330px}.lab-controls{display:flex;align-items:center;gap:14px;margin-top:25px}.control{flex:1}.control label{display:flex;justify-content:space-between;font-size:11px;margin-bottom:11px}.control input{width:100%;accent-color:#66893b;cursor:pointer}.pause{font-size:12px;width:60px;padding:10px 0;border:1px solid var(--line);border-radius:4px}.lab-screen{background:var(--soft);border-radius:5px;padding:18px 20px}.lab-readout{display:flex;justify-content:space-between;font-size:9px;color:var(--muted)}.lab-screen svg{width:100%;height:132px;margin-top:10px}.lab-caption{display:flex;justify-content:space-between;font-size:10px;color:var(--muted)}.about{padding:65px 0 60px;display:grid;grid-template-columns:.7fr 1.3fr;gap:90px}.about h2{font-size:28px;line-height:1.5;margin:16px 0}.about-copy{font-size:13px;color:var(--muted);line-height:2;margin-top:22px}.about-copy p{margin:0 0 14px}.about-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:21px}.about-tags span{border:1px solid var(--line);border-radius:3px;padding:4px 9px;font-size:10px}.closing{border-radius:7px;background:var(--lime);color:#20372c;padding:28px 34px;display:flex;justify-content:space-between;align-items:center;gap:20px}.closing h2{font-size:23px;margin:0 0 9px;letter-spacing:-.6px}.closing p{font-size:12px;margin:0;color:#4f6340}.closing a{display:inline-flex;gap:22px;font-size:12px;padding:13px 18px;border:1px solid #20372c55;border-radius:4px;white-space:nowrap}.closing a:hover{background:#ffffff55}footer{padding:32px 0;display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:10px}.footer-right{display:flex;gap:20px}dialog{max-width:520px;width:calc(100% - 40px);padding:32px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:10px;box-shadow:0 25px 80px #0003}dialog::backdrop{background:#0c201bb3;backdrop-filter:blur(5px)}dialog h2{margin:20px 0;font-size:25px}dialog p{line-height:1.9;font-size:14px;color:var(--muted)}dialog .dialog-close{display:block;margin-left:auto;padding:9px 15px;border:1px solid var(--line);border-radius:4px;font-size:12px}dialog .mono{color:var(--muted)}dialog .primary{margin:15px 0 5px;font-size:12px}.no-js{padding:16px;background:var(--lime);color:#182922;font-size:13px}
+    @media(min-width:1450px){.hero{padding-top:85px;padding-bottom:80px}}
+    @media(max-width:900px){.wrap{width:calc(100% - 48px)}.hero{gap:28px;padding:50px 0}.hero h1{font-size:48px}.scope{height:235px}.nav{gap:20px}.projects{gap:12px}.project-copy{padding:17px}.project-art{height:160px}.lab{gap:25px;padding:26px}.about{gap:40px}.ticker{font-size:9px}}
+    @media(max-width:650px){.wrap{width:calc(100% - 40px)}header{height:73px}.brand{font-size:20px}.nav{gap:15px;font-size:12px}.nav .about-link,.nav .github{display:none}.theme{width:31px;height:31px}.hero{grid-template-columns:1fr;gap:38px;padding:42px 0 37px}.hero h1{font-size:49px;margin:24px 0 18px;letter-spacing:-2.5px}.hero p{font-size:13px;max-width:100%}.hero-foot{margin-top:25px}.instrument{transform:none}.scope{height:240px}.instrument-top{padding:16px 20px}.ticker{display:grid;grid-template-columns:1fr 1fr;row-gap:16px;padding:20px 0;font-size:9px}.section{padding-top:42px}.section-head{align-items:flex-start;flex-direction:column;gap:15px}.section-head h2{font-size:25px}.section-desc{max-width:100%}.projects{grid-template-columns:1fr;gap:18px}.project-art{height:205px}.project-copy{padding:21px}.project p{min-height:auto}.project-open{margin-top:16px}.lab{grid-template-columns:1fr;gap:27px;padding:24px;margin-top:42px}.lab p{max-width:100%}.lab h2{font-size:25px}.lab-screen{padding:16px}.about{grid-template-columns:1fr;gap:0;padding:43px 0 34px}.about h2{font-size:26px;margin-bottom:5px}.about-copy{margin-top:12px}.closing{padding:26px;align-items:flex-start;flex-direction:column;gap:21px}.closing h2{font-size:22px}.closing p{line-height:1.8}footer{padding:26px 0;font-size:9px;gap:16px;align-items:flex-start}.footer-right{gap:12px}.footer-note{display:none}}
+    @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*{transition:none!important}}
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">跳转到主要内容</a>
+<noscript><div class="no-js">页面内容可正常阅读；启用 JavaScript 后可体验主题切换、项目筛选和波形实验。</div></noscript>
+<div class="wrap">
+  <header>
+    <a href="#" class="brand" aria-label="SIGNAL 首页"><span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span>SIGNAL<span style="font-size:12px;margin-left:1px">®</span></a>
+    <nav class="nav" aria-label="主导航"><a href="#projects">探索项目</a><a href="#about" class="about-link">关于这里</a><a class="github" href="https://github.com/mino77ck" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><button class="theme" id="theme" aria-label="切换到深色主题" title="切换主题">◐</button></nav>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <div class="tag mono eyebrow"><span class="dot"></span>A SMALL SPACE FOR BIG IDEAS</div>
+        <h1 id="hero-title">让好奇心，<br>产生一点<em>信号。</em></h1>
+        <p>从一个想法，到一次动手。<br>这里收集关于技术、设计与日常探索的微小实验，<br>也记录那些「如果试试看呢」的瞬间。</p>
+        <div class="actions"><a class="primary" href="#projects">探索实验项目 <span aria-hidden="true">↗</span></a><a class="secondary" href="#playground">玩一下波形 <span aria-hidden="true">↓</span></a></div>
+        <div class="hero-foot"><span aria-hidden="true">✳</span> 一个持续生长的示例空间 · 保持探索</div>
+      </div>
+      <div class="instrument" role="img" aria-label="绿色网格上的正弦波信号示意图">
+        <div class="instrument-top"><span class="mono">SIGNAL EXPLORER / 001</span><div class="lights" aria-hidden="true"><i></i><i></i><i></i></div></div>
+        <div class="scope"><span class="scope-label mono">CH 01 &nbsp; SINE WAVE</span><svg viewBox="0 0 500 267" aria-hidden="true"><defs><linearGradient id="waveGradient"><stop stop-color="#8ba75d"/><stop offset=".5" stop-color="#e5fc92"/><stop offset="1" stop-color="#b7dc77"/></linearGradient></defs><path d="M0 133.5H500" stroke="#b4d19533" stroke-dasharray="4 5"/><path d="M250 0V267" stroke="#b4d19533" stroke-dasharray="4 5"/><path id="hero-wave" d="M0 134 Q31 28 62 134 T124 134 T186 134 T248 134 T310 134 T372 134 T434 134 T496 134" fill="none" stroke="url(#waveGradient)" stroke-width="2.6"/><circle cx="250" cy="134" r="5" fill="#d6f576"/><circle cx="250" cy="134" r="12" fill="none" stroke="#d6f57655"/></svg><span class="scope-corner mono">x: TIME &nbsp; y: POSSIBILITY</span><span class="scope-tiny mono">● LIVE</span></div>
+        <div class="note">EVERY IDEA HAS A FREQUENCY</div>
+        <div class="instrument-bottom"><div class="wave-label">把抽象的灵感，变成看得见的东西。<small class="mono">THINK → BUILD → EXPLORE</small></div><span class="signal-icon" aria-hidden="true">↗</span></div>
+      </div>
+    </section>
+    <div class="ticker" aria-label="网站特色"><span><b>✳</b> BUILT WITH CURIOSITY</span><span><b>↗</b> 从想法到实现</span><span><b>⊙</b> 小实验，大可能</span><span><b>⌘</b> KEEP MAKING THINGS</span></div>
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="section-head"><div><div class="mono section-number">01 / SELECTED EXPERIMENTS</div><h2 id="projects-title">一些正在发芽的想法</h2></div><p class="section-desc">三个概念演示，三种探索方式。<br>点击项目，看看一个小想法可以从哪里开始。</p></div>
+      <div class="filters" role="group" aria-label="按类型筛选项目" style="margin-bottom:23px"><button class="filter" data-filter="all" aria-pressed="true">全部</button><button class="filter" data-filter="tech" aria-pressed="false">技术实验</button><button class="filter" data-filter="design" aria-pressed="false">视觉探索</button></div>
+      <div class="projects" id="project-list">
+        <article class="project" data-category="tech"><div class="project-art art-grid"><span class="art-mark mono">FIG. 01 — FREQUENCY</span><svg viewBox="0 0 360 185" aria-hidden="true"><path d="M35 130H325M58 32V153" stroke="#859075" stroke-width=".7"/><path d="M35 95C55 95 55 45 75 45S95 145 115 145 135 45 155 45 175 145 195 145 215 45 235 45 255 145 275 145 295 45 315 45" stroke="#3c6046" stroke-width="2" fill="none"/><path d="M35 95C70 95 70 75 105 75S140 115 175 115 210 75 245 75 280 115 315 115" stroke="#8da645" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/><circle cx="155" cy="45" r="4" fill="#3c6046"/></svg></div><div class="project-copy"><div class="project-meta mono"><span>INTERACTIVE / 001</span><span>概念演示</span></div><h3>看见声音的形状</h3><p>当频率变成曲线，用交互理解信号的节奏与变化。</p><button class="project-open" data-project="signal" aria-haspopup="dialog">探索这个想法 <b aria-hidden="true">↗</b></button></div></article>
+        <article class="project" data-category="design"><div class="project-art art-orbits"><span class="art-mark mono">FIG. 02 — CONNECTION</span><svg viewBox="0 0 360 185" aria-hidden="true"><g transform="translate(185,98)"><ellipse rx="97" ry="31" fill="none" stroke="#7b9267" transform="rotate(-32)"/><ellipse rx="97" ry="31" fill="none" stroke="#7b9267" transform="rotate(32)"/><ellipse rx="97" ry="31" fill="none" stroke="#7b9267" transform="rotate(90)"/><circle r="22" fill="#284d38"/><circle r="10" fill="#d6f576"/><circle cx="82" cy="-35" r="7" fill="#d6f576" stroke="#577447"/><circle cx="-23" cy="83" r="4" fill="#355c3d"/></g></svg></div><div class="project-copy"><div class="project-meta mono"><span>VISUAL / 002</span><span>概念演示</span></div><h3>在连接中发现秩序</h3><p>从简单的几何出发，探索结构、轨迹与留白的平衡。</p><button class="project-open" data-project="orbits" aria-haspopup="dialog">探索这个想法 <b aria-hidden="true">↗</b></button></div></article>
+        <article class="project" data-category="tech"><div class="project-art art-code"><span class="art-mark mono">FIG. 03 — ITERATION</span><svg viewBox="0 0 360 185" aria-hidden="true"><rect x="64" y="37" width="230" height="126" rx="5" fill="#f7f7f0" stroke="#bac2ad"/><path d="M64 58H294" stroke="#bac2ad"/><circle cx="77" cy="48" r="2" fill="#839474"/><circle cx="86" cy="48" r="2" fill="#abb59b"/><circle cx="95" cy="48" r="2" fill="#cad1bd"/><g stroke-linecap="round" stroke-width="4"><path d="M85 77H112M122 77H157" stroke="#54744c"/><path d="M98 93H139M149 93H213" stroke="#a3b18b"/><path d="M98 109H119M130 109H183" stroke="#7c9467"/><path d="M98 125H160" stroke="#a3b18b"/><path d="M85 141H100" stroke="#54744c"/></g><rect x="233" y="115" width="45" height="32" rx="3" fill="#d6f576"/><path d="M247 126L252 131 263 122" fill="none" stroke="#355c3d" stroke-width="2"/></svg></div><div class="project-copy"><div class="project-meta mono"><span>BUILD / 003</span><span>概念演示</span></div><h3>把重复交给代码</h3><p>一个小小的工具灵感，让琐碎的日常多一点从容。</p><button class="project-open" data-project="code" aria-haspopup="dialog">探索这个想法 <b aria-hidden="true">↗</b></button></div></article>
+      </div>
+      <p id="filter-status" role="status" style="font-size:11px;color:var(--muted);margin:12px 0 0">显示全部 3 个概念项目</p>
+    </section>
+    <section class="lab" id="playground" aria-labelledby="lab-title"><div><div class="mono section-number">02 / MINI PLAYGROUND</div><h2 id="lab-title">动手，调一段频率。</h2><p>拖动滑块，看波形如何随着频率变化。<br>探索不一定从复杂开始，一点好奇就够了。</p><div class="lab-controls"><div class="control"><label for="frequency">信号频率 <output id="frequency-value" for="frequency">2.0 Hz</output></label><input id="frequency" type="range" min="0.5" max="5" value="2" step="0.1" aria-describedby="lab-note"></div><button class="pause" id="pause" aria-pressed="false">暂停</button></div></div><div class="lab-screen"><div class="lab-readout mono"><span>SINE WAVE / PREVIEW</span><span id="live-label">● RUNNING</span></div><svg id="lab-svg" viewBox="0 0 500 132" role="img" aria-label="可调整频率的正弦波示意图"><path d="M0 66H500M250 0V132" stroke="currentColor" opacity=".12" stroke-dasharray="3 5"/><path id="lab-wave" d="M0 66" stroke="#6b8a3b" stroke-width="2.5" fill="none"/></svg><div class="lab-caption"><span id="lab-note">归一化振幅 · 1 秒时间窗 · 可视化示意</span><span class="mono" id="period">T = 0.50 s</span></div></div></section>
+    <section class="about" id="about" aria-labelledby="about-title"><div><div class="mono section-number">03 / ABOUT THIS SPACE</div><h2 id="about-title">认真好奇，<br>轻装上路。</h2></div><div class="about-copy"><p>SIGNAL 是一个关于「开始」的示例网站。它可以是一份个人作品集的起点，也可以是实验记录、学习笔记，或下一个项目的第一张草图。</p><p>这里的项目是用于展示页面与交互的概念内容。真正的故事，等待你来续写。把喜欢的东西做出来，让它在世界里发出一点自己的信号。</p><div class="about-tags"><span>原生 HTML / CSS / JS</span><span>响应式设计</span><span>持续探索中 ↗</span></div></div></section>
+    <section class="closing" aria-labelledby="closing-title"><div><h2 id="closing-title">下一个想法，从这里开始。</h2><p>保持好奇，把灵感变成可以分享的作品。</p></div><a href="https://github.com/mino77ck" target="_blank" rel="noopener noreferrer">在 GitHub 上探索 <span aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer><span class="mono">© <span id="year">2026</span> SIGNAL LAB.</span><span class="footer-note">MADE WITH A LITTLE CURIOSITY.</span><div class="footer-right"><span>示例网站</span><a href="#" aria-label="返回顶部">回到顶部 ↑</a></div></footer>
+</div>
+<dialog id="project-dialog" aria-labelledby="dialog-title"><div class="mono" id="dialog-kind"></div><h2 id="dialog-title"></h2><p id="dialog-description"></p><p id="dialog-detail"></p><a class="primary" id="dialog-action" href="#playground">去体验波形实验 <span aria-hidden="true">↗</span></a><button class="dialog-close" id="dialog-close">关闭</button></dialog>
+<script>
+  (() => {
+    'use strict';
+    const root = document.documentElement;
+    const themeButton = document.getElementById('theme');
+    let savedTheme = null;
+    try { savedTheme = localStorage.getItem('signal-theme'); } catch (_) {}
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+    function setTheme(theme) {
+      root.dataset.theme = theme;
+      const isDark = theme === 'dark';
+      themeButton.textContent = isDark ? '☼' : '◐';
+      themeButton.setAttribute('aria-label', isDark ? '切换到浅色主题' : '切换到深色主题');
+    }
+    setTheme(savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : (systemDark.matches ? 'dark' : 'light'));
+    themeButton.addEventListener('click', () => {
+      const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      setTheme(theme);
+      try { localStorage.setItem('signal-theme', theme); } catch (_) {}
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const projects = Array.from(document.querySelectorAll('.project'));
+    const filters = Array.from(document.querySelectorAll('.filter'));
+    filters.forEach(button => button.addEventListener('click', () => {
+      filters.forEach(filter => filter.setAttribute('aria-pressed', String(filter === button)));
+      projects.forEach(project => { project.hidden = button.dataset.filter !== 'all' && project.dataset.category !== button.dataset.filter; });
+      const visibleCount = projects.filter(project => !project.hidden).length;
+      document.getElementById('filter-status').textContent = '显示' + (button.dataset.filter === 'all' ? '全部' : '「' + button.textContent + '」') + ' ' + visibleCount + ' 个概念项目';
+    }));
+    const details = {
+      signal: {kind:'INTERACTIVE / 001', title:'看见声音的形状', description:'频率决定了单位时间内波形重复的次数。拖动页面下方的滑块，就能直观看到：频率越高，同一时间窗里的波形越密。', detail:'这个小实验呈现归一化的数学正弦波，用来帮助观察变化；它不会播放或录制音频。', action:'去体验波形实验', href:'#playground'},
+      orbits: {kind:'VISUAL / 002', title:'在连接中发现秩序', description:'三条椭圆轨道、一个中心、两个观察点。简单的几何关系，也可以成为清晰而有节奏的视觉表达。', detail:'这是一个视觉概念示例，不是物理轨道模型。你可以把这张卡片替换成自己的设计练习、摄影作品或作品集项目。', action:'了解这个空间', href:'#about'},
+      code: {kind:'BUILD / 003', title:'把重复交给代码', description:'从每天反复出现的小步骤开始：整理文件名、汇总学习记录，或把零散的灵感变成一张清单。先定义输入和输出，再写下第一个能运行的版本。', detail:'这是一个工具方向的概念示例，尚未接入文件处理服务。当前网站中的项目筛选、主题切换和波形实验均可直接体验。', action:'返回项目列表', href:'#projects'}
+    };
+    const dialog = document.getElementById('project-dialog');
+    let lastProjectButton;
+    function closeDialog() { dialog.close(); if (lastProjectButton) lastProjectButton.focus(); }
+    document.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => {
+      const project = details[button.dataset.project];
+      lastProjectButton = button;
+      document.getElementById('dialog-kind').textContent = project.kind;
+      document.getElementById('dialog-title').textContent = project.title;
+      document.getElementById('dialog-description').textContent = project.description;
+      document.getElementById('dialog-detail').textContent = project.detail;
+      const action = document.getElementById('dialog-action');
+      action.textContent = project.action + ' ↗'; action.href = project.href;
+      dialog.showModal();
+    }));
+    document.getElementById('dialog-close').addEventListener('click', closeDialog);
+    document.getElementById('dialog-action').addEventListener('click', closeDialog);
+    dialog.addEventListener('click', event => { if (event.target === dialog) { const rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) closeDialog(); } });
+    const frequency = document.getElementById('frequency');
+    const pauseButton = document.getElementById('pause');
+    const wave = document.getElementById('lab-wave');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let paused = reducedMotion.matches, phase = 0, lastTime = 0, animationId = null;
+    function drawWave() {
+      const f = Number(frequency.value);
+      const points = [];
+      for (let x = 0; x <= 500; x += 2) {
+        const y = 66 - 42 * Math.sin((x / 500 * f * Math.PI * 2) - phase);
+        points.push((x === 0 ? 'M' : 'L') + x + ',' + y.toFixed(2));
+      }
+      wave.setAttribute('d', points.join(' '));
+    }
+    function animate(time) {
+      animationId = null;
+      if (paused || document.hidden) { lastTime = 0; return; }
+      if (lastTime) phase = (phase + Math.min(time - lastTime, 50) * Number(frequency.value) * Math.PI * 2 / 1000) % (Math.PI * 2);
+      lastTime = time;
+      drawWave();
+      animationId = requestAnimationFrame(animate);
+    }
+    function updateAnimation() {
+      pauseButton.textContent = paused ? '播放' : '暂停';
+      pauseButton.setAttribute('aria-pressed', String(paused));
+      document.getElementById('live-label').textContent = paused ? 'Ⅱ PAUSED' : '● RUNNING';
+      if (animationId !== null) cancelAnimationFrame(animationId);
+      animationId = null; lastTime = 0;
+      if (!paused && !document.hidden) animationId = requestAnimationFrame(animate);
+    }
+    frequency.addEventListener('input', () => {
+      document.getElementById('frequency-value').textContent = Number(frequency.value).toFixed(1) + ' Hz';
+      document.getElementById('period').textContent = 'T = ' + (1 / Number(frequency.value)).toFixed(2) + ' s';
+      drawWave();
+    });
+    pauseButton.addEventListener('click', () => { paused = !paused; updateAnimation(); });
+    reducedMotion.addEventListener('change', event => { if (event.matches) { paused = true; updateAnimation(); } });
+    document.addEventListener('visibilitychange', updateAnimation);
+    drawWave(); updateAnimation();
+  })();
+</script>
+</body>
+</html>
